@@ -38,6 +38,7 @@ Route::controller('/', 'HomeController',
 		'getDeleteInfo' =>'home.blog.delete',
 		'getBlogEdit' => 'home.blog.edit',
 		'postBlogEdit' => 'home.blog.post',
+		'postUpdateBlog' => 'update.blog',
 		'getBlogContent' => 'blog.content',
 		'getEditBlog'=> 'edit.blog'
 ]);

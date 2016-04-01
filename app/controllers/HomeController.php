@@ -70,6 +70,22 @@ class HomeController extends BaseController {
     	array('title' => $title, 'content' => $content));
 	}
 
+	/*编辑title和content，并对数据库进行更新*/
+	public function postUpdateBlog($blog_id)
+	{
+		//dd($blog_id);
+		$title = Input::get('title');
+		$content = Input::get('content');
+/*
+		DB::table('blogs')->insert(
+    	array('title' => $title, 'content' => $content));
+*/
+    	DB::table('blogs')
+            ->where('id', '=', $blog_id)
+            ->update(array('title' => $title, 'content' => $content));
+	}
+
+	/*编辑blog的内容*/
 	public function getBlogContent($blog_id)
 	{
 		//Input::get('id');

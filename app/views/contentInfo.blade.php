@@ -7,8 +7,16 @@
 
 
 
-	<p>This is blog {{ $blog->title }} </p>
-	<p>This is blog {{ $blog->content }} </p>
+	<form action="{{URL::route('update.blog',array($blog->id)) }}" method="POST">
+		title:<br>
+		<input type='text' name='title' value='{{ $blog->title }}'><br>
+		content:<br>
+		<input type='text' name='content' value='{{ $blog->content }}'><br>
+
+		<input type="submit" value="commit!">
+	</form>
+
+
 	<a href="{{URL::route('home.index')}}">return main page</a>
 
 <!--
