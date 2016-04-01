@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'mysql1',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,10 +52,11 @@ return array(
 			'prefix'   => '',
 		),
 
-		'mysql' => array(
+
+		'mysql1' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'database2016',
+			'database'  => 'blog',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',

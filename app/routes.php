@@ -11,20 +11,56 @@
 |
 */
 
-Route::get('/', function()
-{
+// Route::get('/', function()
+// {
+	
+// 	DB::table('blogs')->insert(
+//     array('title' => 'abc', 'content' => 'abbdfsdf'));
+
+//     	DB::table('blogs')->insert(
+//     array('title' => 'ffff', 'content' => 'abbdfdfgsdf'));
+
+//     		DB::table('blogs')->insert(
+//     array('title' => 'ddd', 'content' => 'abbdfsdfgdf'));
+
+//     			DB::table('blogs')->insert(
+//     array('title' => 'abcdef', 'content' => 'abbdfsdfggdf'));
+	
+// 	return View::make('login');
+
+// });
+
+	
+Route::controller('/', 'HomeController',
+[
+		'getIndex' => 'home.index',
+		'getShowWelcome' => 'home.welcome',
+		'getDeleteInfo' =>'home.blog.delete',
+		'getBlogEdit' => 'home.blog.edit',
+		'postBlogEdit' => 'home.blog.post',
+		'getBlogContent' => 'blog.content',
+		'getEditBlog'=> 'edit.blog'
+]);
+
+
+
+
 	// dd( DB::table('database2016')->get() );
 
 	//dd( DB::table('database2016')->get() );
 
+
 /*
+
 	$users = DB::table('database2016')->get();
 
 	foreach ($users as $user)
 	{
     	var_dump($user->name);
 	}
-*/
+
+
+
 	//更新数据库的内容
 	DB::table('database2016')
             ->where('name', 'roy')
@@ -45,16 +81,13 @@ Route::get('/', function()
 	DB::table('database2016')->where('name', '=', 'aimee')->delete();
 
 
-DB::table('database2016')->insert(
+	DB::table('database2016')->insert(
     array('name' => 'aimee', 'age' => 16)
 );
 
-	return "hello world";
+	
 });
 
 
-Route::controller('home_welcome', 'HomeController',
-[
-		'getShowWelcome' => 'home.welcome',
-		'getMath'=>'home.math'
-]);
+*/
+
