@@ -83,6 +83,8 @@ class HomeController extends BaseController {
     	DB::table('blogs')
             ->where('id', '=', $blog_id)
             ->update(array('title' => $title, 'content' => $content));
+
+        return Redirect::route('home.index');
 	}
 
 	/*编辑blog的内容*/
@@ -101,7 +103,7 @@ class HomeController extends BaseController {
 		$blog = DB::table('blogs')->where('id', '=', $blog_id)->first();
 
 		/*程序跳转到blog.blade.php文件*/
-		return View::make('contentInfo')->with('blog', $blog);							
+		return View::make('editTitleContent')->with('blog', $blog);							
 	}
 
 

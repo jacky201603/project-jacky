@@ -5,10 +5,23 @@
 	</head>
 	<body>
 
-	<a href="{{URL::route('home.blog.edit')}}">添加blog</a>
 
-	@foreach ($blogs as $blog)
-	<p>This is blog {{ $blog->title }} </p>
+
+	<form action="{{URL::route('update.blog',array($blog->id)) }}" method="POST">
+		title:<br>
+
+		<input type='text' name='title' value="{{$blog->title}}"><br>
+		content:<br>
+		<input type='text' name='content' value='{{ $blog->content }}'><br>
+
+		<input type="submit" value="commit!">
+	</form>
+
+
+	<a href="{{URL::route('home.index')}}">return main page</a>
+
+<!--
+	<a href="{{URL::route('home.blog.edit')}}">添加blog</a>
 
 	<form action="{{URL::route('home.blog.delete')}}">
 
@@ -16,12 +29,8 @@
   		<input type="submit" value="Delete Me!">
 	</form>
 
-	<a href="{{URL::route('blog.content', array($blog->id) )}}">see content info</a>
-	<a href="{{URL::route('edit.blog', array($blog->id) )}}">edit the title </a>
+	<a href="{{URL::route('home.blog.delete' )}}">see content info</a>
 
-
-
-<!--
 	<a href="{{URL::route('home.blog.delete', array($blog->id) )}}">delte me !</a>
 
 	<a href="{{URL::route('home.blog.delete') . '?id=' . $blog->id }}">delte me again!</a>
@@ -35,8 +44,6 @@
   		<input type="submit" value="Delete Me!">
 	</form>
 -->
-
-	@endforeach
 
 
 	</body>
