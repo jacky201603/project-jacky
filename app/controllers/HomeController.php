@@ -43,23 +43,13 @@ class HomeController extends BaseController {
 		return View::make('blog')->with('blogs', $blogs);									
 	}
 
-	/*删除对应的blog*/
-	public function getDeleteInfo()
-	{
-
-		echo Input::get('tea_name');
-
-		$blog_id = Input::get('id');
-
-		DB::table('blogs')->where('id', '=', $blog_id)->delete();
-		// echo $blog_id;
-	}
 	/*跳转到添加blog内容的界面*/
 	public function getBlogEdit()
 	{
 		return View::make('blogEdit');									
 
 	}
+
 	/*将浏览器输入的title和content存入数据库*/
 	public function postBlogEdit()
 	{
@@ -68,6 +58,38 @@ class HomeController extends BaseController {
 
 		DB::table('blogs')->insert(
     	array('title' => $title, 'content' => $content));
+	}
+
+	/*删除对应的blog*/
+	public function getDeleteInfo()
+	{
+
+		//echo Input::get('tea_name');
+
+		$blog_id = Input::get('id');
+
+		DB::table('blogs')->where('id', '=', $blog_id)->delete();
+		// echo $blog_id;
+	}
+
+	/*编辑blog的内容*/
+	public function getBlogContent($blog_id)
+	{
+		//Input::get('id');
+		$blog = DB::table('blogs')->where('id', '=', $blog_id)->first();
+
+		/*程序跳转到blog.blade.php文件*/
+		return View::make('contentInfo')->with('blog', $blog);							
+	}
+
+
+	public function getEditBlog($blog_id)
+	{
+		//Input::get('id');
+		$blog = DB::table('blogs')->where('id', '=', $blog_id)->first();
+
+		/*程序跳转到blog.blade.php文件*/
+		return View::make('editTitleContent')->with('blog', $blog);							
 	}
 
 	/*编辑title和content，并对数据库进行更新*/
@@ -86,26 +108,5 @@ class HomeController extends BaseController {
 
         return Redirect::route('home.index');
 	}
-
-	/*编辑blog的内容*/
-	public function getBlogContent($blog_id)
-	{
-		//Input::get('id');
-		$blog = DB::table('blogs')->where('id', '=', $blog_id)->first();
-
-		/*程序跳转到blog.blade.php文件*/
-		return View::make('contentInfo')->with('blog', $blog);							
-	}
-
-	public function getEditBlog($blog_id)
-	{
-		//Input::get('id');
-		$blog = DB::table('blogs')->where('id', '=', $blog_id)->first();
-
-		/*程序跳转到blog.blade.php文件*/
-		return View::make('editTitleContent')->with('blog', $blog);							
-	}
-
-
 
 }

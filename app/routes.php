@@ -33,14 +33,13 @@
 	
 Route::controller('/', 'HomeController',
 [
-		'getIndex' => 'home.index',
-		'getShowWelcome' => 'home.welcome',
-		'getDeleteInfo' =>'home.blog.delete',
-		'getBlogEdit' => 'home.blog.edit',
-		'postBlogEdit' => 'home.blog.post',
-		'postUpdateBlog' => 'update.blog',
-		'getBlogContent' => 'blog.content',
-		'getEditBlog'=> 'edit.blog'
+	'getIndex' => 'home.index',
+	'getBlogEdit'=>'home.blog.edit',
+	'postBlogEdit'=>'home.blog.post',
+	'getDeleteInfo'=>'home.blog.delete',
+	'getBlogContent'=>'blog.content',
+	'getEditBlog'=>'edit.blog',
+	'postUpdateBlog'=>'update.blog'
 ]);
 
 
